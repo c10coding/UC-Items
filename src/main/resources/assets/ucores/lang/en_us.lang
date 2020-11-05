@@ -1,5 +1,7 @@
 #Items
 item.shadowiron_ingot.name=Shadow Iron Ingot
+item.dull_copper_ingot.name=Dull Copper Ingot
 
 #Block
 tile.shadowiron_ore.name=Shadow Iron Ore
+tile.dull_copper_ore.name=Dull Copper Ore

@@ -1,5 +1,6 @@
 package net.dohaw.ucores;
 
+import net.dohaw.ucores.init.ModRecipes;
 import net.dohaw.ucores.proxy.CommonProxy;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.Mod;
@@ -34,8 +35,7 @@ public class UCOres
     @EventHandler
     public static void init(FMLInitializationEvent event)
     {
-        // some example code
-        logger.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+        ModRecipes.init();
     }
 
     @EventHandler
