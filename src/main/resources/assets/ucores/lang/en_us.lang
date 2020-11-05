@@ -1,7 +1,11 @@
 #Items
 item.shadowiron_ingot.name=Shadow Iron Ingot
 item.dull_copper_ingot.name=Dull Copper Ingot
+item.copper_ingot.name=Copper Ingot
+item.agapite_ingot.name=Agapite Ingot
 
 #Block
 tile.shadowiron_ore.name=Shadow Iron Ore
 tile.dull_copper_ore.name=Dull Copper Ore
+tile.copper_ore.name=Copper Ore
+tile.agapite_ore.name=Agaptite Ore

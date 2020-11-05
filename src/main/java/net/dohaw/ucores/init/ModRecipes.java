@@ -8,6 +8,8 @@ public class ModRecipes {
     public static void init(){
         GameRegistry.addSmelting(ModBlocks.SHADOWIRON_ORE, new ItemStack(ModItems.SHADOWIRON_INGOT, 1), 1.5f);
         GameRegistry.addSmelting(ModBlocks.DULL_COPPER_ORE, new ItemStack(ModItems.DULL_COPPER_INGOT, 1), 1.5f);
+        GameRegistry.addSmelting(ModBlocks.COPPER_ORE, new ItemStack(ModItems.COPPER_INGOT, 1), 1.5f);
+        GameRegistry.addSmelting(ModBlocks.AGAPITE_ORE, new ItemStack(ModItems.AGAPITE_INGOT, 1), 1.5f);
     }
 
 }

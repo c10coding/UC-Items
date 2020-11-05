@@ -12,5 +12,7 @@ public class ModItems {
 
     public static final Item SHADOWIRON_INGOT = new ItemBase("shadowiron_ingot");
     public static final Item DULL_COPPER_INGOT = new ItemBase("dull_copper_ingot");
+    public static final Item COPPER_INGOT = new ItemBase("copper_ingot");
+    public static final Item AGAPITE_INGOT = new ItemBase("agapite_ingot");
 
 }
