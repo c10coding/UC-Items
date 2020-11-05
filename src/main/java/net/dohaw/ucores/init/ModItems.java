@@ -16,5 +16,6 @@ public class ModItems {
     public static final Item AGAPITE_INGOT = new ItemBase("agapite_ingot");
     public static final Item VERITE_INGOT = new ItemBase("verite_ingot");
     public static final Item VALORITE_INGOT = new ItemBase("valorite_ingot");
+    public static final Item BRONZE_INGOT = new ItemBase("bronze_ingot");
 
 }
