@@ -10,6 +10,8 @@ public class ModRecipes {
         GameRegistry.addSmelting(ModBlocks.DULL_COPPER_ORE, new ItemStack(ModItems.DULL_COPPER_INGOT, 1), 1.5f);
         GameRegistry.addSmelting(ModBlocks.COPPER_ORE, new ItemStack(ModItems.COPPER_INGOT, 1), 1.5f);
         GameRegistry.addSmelting(ModBlocks.AGAPITE_ORE, new ItemStack(ModItems.AGAPITE_INGOT, 1), 1.5f);
+        GameRegistry.addSmelting(ModBlocks.VERITE_ORE, new ItemStack(ModItems.VERITE_INGOT, 1), 1.5f);
+        GameRegistry.addSmelting(ModBlocks.VALORITE_ORE, new ItemStack(ModItems.VALORITE_INGOT, 1), 1.5f);
     }
 
 }

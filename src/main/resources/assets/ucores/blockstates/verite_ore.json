@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "normal": { "model": "ucores:verite_ore" }
+  }
+}

@@ -15,5 +15,7 @@ public class ModBlocks {
     public static final Block DULL_COPPER_ORE = new BlockBase("dull_copper_ore", Material.IRON);
     public static final Block COPPER_ORE = new BlockBase("copper_ore", Material.IRON);
     public static final Block AGAPITE_ORE = new BlockBase("agapite_ore", Material.IRON);
+    public static final Block VERITE_ORE = new BlockBase("verite_ore", Material.IRON);
+    public static final Block VALORITE_ORE = new BlockBase("valorite_ore", Material.IRON);
 
 }
