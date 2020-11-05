@@ -11,6 +11,5 @@ public class ModItems {
     public static final List<Item> ITEMS = new ArrayList<>();
 
     public static final Item SHADOWIRON_INGOT = new ItemBase("shadowiron_ingot");
-    public static final Item SHADOWIRON_ORE = new ItemBase("shadowiron_ore");
 
 }
