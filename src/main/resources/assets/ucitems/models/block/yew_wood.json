@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "ucitems:blocks/yew_wood_top",
+    "side": "ucitems:blocks/yew_wood"
+  }
+}

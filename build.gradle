@@ -15,8 +15,8 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
 version = '1.0'
-group = 'net.dohaw.ucores' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'UC-Ores'
+group = 'net.dohaw.ucitems' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = 'UC-Items'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 

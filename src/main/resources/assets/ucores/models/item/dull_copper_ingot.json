@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "ucores:items/dull_copper_ingot"
-  }
-}

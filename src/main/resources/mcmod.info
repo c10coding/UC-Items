@@ -1,7 +1,7 @@
 [
 {
-  "modid": "ucores",
-  "name": "UC Ores",
+  "modid": "ucitems",
+  "name": "UC Items",
   "description": "Mod for Atrevion",
   "version": "1.0.0",
   "mcversion": "1.12.2",

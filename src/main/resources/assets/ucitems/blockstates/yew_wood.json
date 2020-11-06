@@ -1,0 +1,10 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "axis=y":  { "model": "ucitems:yew_wood" },
+    "axis=z":   { "model": "ucitems:yew_wood", "x": 90 },
+    "axis=x":   { "model": "ucitems:yew_wood", "x": 90, "y": 90 },
+    "axis=none": { "model": "ucitems:yew_wood" },
+    "normal": { "model": "ucitems:yew_wood" }
+  }
+}
