@@ -8,6 +8,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import org.apache.logging.log4j.Logger;
 
 @Mod(modid = UCItems.MODID, name = UCItems.NAME, version = UCItems.VERSION, acceptedMinecraftVersions = UCItems.ACCEPTED_VERSIONS)
@@ -38,9 +39,13 @@ public class UCItems
     }
 
     @EventHandler
+    public void serverStarting(FMLServerStartingEvent event) {
+        //event.registerServerCommand(new Command());
+    }
+
+    @EventHandler
     public static void postInit(FMLPostInitializationEvent event)
     {
-
     }
 
     @SidedProxy(clientSide = CLIENT_PROXY_CLASS, serverSide = COMMON_PROXY_CLASS)

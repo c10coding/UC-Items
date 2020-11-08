@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_column",
-  "textures": {
-    "end": "ucitems:blocks/normal_wood_top",
-    "side": "ucitems:blocks/normal_wood"
-  }
-}

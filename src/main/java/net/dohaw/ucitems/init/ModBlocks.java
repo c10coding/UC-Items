@@ -26,7 +26,7 @@ public class ModBlocks {
         Logs
      */
     public static final Block ASH_WOOD = new BlockBase("ash_wood", Material.WOOD);
-    public static final Block NORMAL_WOOD = new BlockBase("normal_wood", Material.WOOD);
+    public static final Block PINE_WOOD = new BlockBase("pine_wood", Material.WOOD);
     public static final Block BLOOD_WOOD = new BlockBase("blood_wood", Material.WOOD);
     public static final Block FROST_WOOD = new BlockBase("frost_wood", Material.WOOD);
     public static final Block YEW_WOOD = new BlockBase("yew_wood", Material.WOOD);
