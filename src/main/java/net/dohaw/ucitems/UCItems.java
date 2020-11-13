@@ -1,7 +1,9 @@
 package net.dohaw.ucitems;
 
 import net.dohaw.ucitems.init.ModRecipes;
+import net.dohaw.ucitems.listeners.PlayerWatcher;
 import net.dohaw.ucitems.proxy.CommonProxy;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -33,9 +35,9 @@ public class UCItems
     }
 
     @EventHandler
-    public static void init(FMLInitializationEvent event)
-    {
+    public static void init(FMLInitializationEvent event){
         ModRecipes.init();
+        MinecraftForge.EVENT_BUS.register(new PlayerWatcher());
     }
 
     @EventHandler

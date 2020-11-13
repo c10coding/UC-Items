@@ -5,6 +5,7 @@ import net.dohaw.ucitems.init.ModItems;
 import net.dohaw.ucitems.utils.IHasModel;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraftforge.client.event.RenderPlayerEvent;
 
 public class ItemBase extends Item implements IHasModel {
 
