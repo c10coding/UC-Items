@@ -1,18 +1,19 @@
 package net.dohaw.ucitems.listeners;
 
+import net.dohaw.ucitems.gui.buttons.SkillsButton;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraftforge.client.event.GuiScreenEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.lang.reflect.Field;
 import java.util.List;
 
 public class PlayerWatcher {
+
+    private final int SKILLS_BUTTON_ID = 0;
 
     private static Field KEYBIND_ARRAY = null;
 
@@ -22,16 +23,23 @@ public class PlayerWatcher {
     }
 
     @SubscribeEvent
-    @SideOnly(Side.CLIENT)
     public void onGUI(GuiScreenEvent.InitGuiEvent.Post event){
         GuiScreen screen = event.getGui();
         if(screen instanceof GuiInventory){
-            System.out.println("HERE");
             List<GuiButton> buttons = event.getButtonList();
-            GuiButton button = new GuiButton(543, screen.width / 2 - 100, screen.height - (screen.height / 4) + 10, "Button");
-            event.getButtonList().add(button);
+            SkillsButton button = new SkillsButton(SKILLS_BUTTON_ID, 10, screen.height - 30, 40, 20, "Skills");
             buttons.add(button);
             event.setButtonList(buttons);
+        }
+    }
+
+    @SubscribeEvent
+    public void onPressGUIButton(GuiScreenEvent.ActionPerformedEvent e){
+        GuiButton button = e.getButton();
+        GuiScreen screen = e.getGui();
+        if(screen instanceof GuiInventory){
+            if(button.id == SKILLS_BUTTON_ID){
+            }
         }
     }
 

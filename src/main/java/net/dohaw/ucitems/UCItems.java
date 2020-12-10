@@ -1,6 +1,5 @@
 package net.dohaw.ucitems;
 
-import net.dohaw.ucitems.commands.MyCommand;
 import net.dohaw.ucitems.init.ModRecipes;
 import net.dohaw.ucitems.listeners.PlayerWatcher;
 import net.dohaw.ucitems.proxy.CommonProxy;
