@@ -1,5 +1,6 @@
 package net.dohaw.ucitems;
 
+import net.dohaw.ucitems.commands.MyCommand;
 import net.dohaw.ucitems.init.ModRecipes;
 import net.dohaw.ucitems.listeners.PlayerWatcher;
 import net.dohaw.ucitems.proxy.CommonProxy;
@@ -42,7 +43,7 @@ public class UCItems
 
     @EventHandler
     public void serverStarting(FMLServerStartingEvent event) {
-        //event.registerServerCommand(new Command());
+        //event.registerServerCommand(new MyCommand());
     }
 
     @EventHandler
