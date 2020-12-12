@@ -1,8 +1,7 @@
 package net.dohaw.ucitems.listeners;
 
-import net.dohaw.ucitems.gui.SkillsCategories;
 import net.dohaw.ucitems.gui.buttons.CustomGuiButton;
-import net.dohaw.ucitems.packets.MyPacket;
+import net.dohaw.ucitems.packets.RequestSkillCategoryOpenPacket;
 import net.dohaw.ucitems.packets.PacketHandler;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
@@ -12,7 +11,6 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.lang.reflect.Field;
 import java.util.List;
@@ -37,7 +35,6 @@ public class PlayerWatcher {
             CustomGuiButton button = new CustomGuiButton(SKILLS_BUTTON_ID, 10, screen.height - 30, 40, 20, "Skills", "testing");
             buttons.add(button);
             event.setButtonList(buttons);
-            PacketHandler.INSTANCE.sendToServer(new MyPacket());
         }
     }
 
@@ -47,7 +44,7 @@ public class PlayerWatcher {
         GuiScreen screen = e.getGui();
         if(screen instanceof GuiInventory){
             if(button.id == SKILLS_BUTTON_ID){
-                screen.mc.displayGuiScreen(new SkillsCategories());
+                PacketHandler.INSTANCE.sendToServer(new RequestSkillCategoryOpenPacket());
             }
         }
     }

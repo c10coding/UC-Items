@@ -42,9 +42,5 @@ public class RegistryHandler {
 
     }
 
-    @SubscribeEvent
-    public static void registerPackets(FMLNetworkEvent.CustomPacketRegistrationEvent e){
-        System.out.println("REGISTERING!");
-    }
 
 }
