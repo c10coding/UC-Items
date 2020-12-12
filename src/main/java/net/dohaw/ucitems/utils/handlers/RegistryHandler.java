@@ -7,8 +7,10 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.FMLNetworkEvent;
 
 @Mod.EventBusSubscriber
 public class RegistryHandler {
@@ -38,6 +40,11 @@ public class RegistryHandler {
             }
         }
 
+    }
+
+    @SubscribeEvent
+    public static void registerPackets(FMLNetworkEvent.CustomPacketRegistrationEvent e){
+        System.out.println("REGISTERING!");
     }
 
 }

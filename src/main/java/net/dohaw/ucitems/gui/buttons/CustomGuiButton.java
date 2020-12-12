@@ -7,12 +7,13 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
 
-public class SkillsButton extends GuiButton {
+public class CustomGuiButton extends GuiButton {
 
-    private static final ResourceLocation TEXTURES = new ResourceLocation(UCItems.MODID, "textures/gui/testing.png");
+    private ResourceLocation textures;
 
-    public SkillsButton(int buttonId, int x, int y, int widthIn, int heightIn, String buttonText) {
+    public CustomGuiButton(int buttonId, int x, int y, int widthIn, int heightIn, String buttonText, String texture) {
         super(buttonId, x, y, widthIn, heightIn, buttonText);
+        this.textures = new ResourceLocation(UCItems.MODID, "textures/gui/" + texture + ".png");
     }
 
     public void drawButton(Minecraft mc, int mouseX, int mouseY, float partialTicks)
@@ -20,7 +21,7 @@ public class SkillsButton extends GuiButton {
         if (this.visible)
         {
             FontRenderer fontrenderer = mc.fontRenderer;
-            mc.getTextureManager().bindTexture(TEXTURES);
+            mc.getTextureManager().bindTexture(textures);
             GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
             this.hovered = mouseX >= this.x && mouseY >= this.y && mouseX < this.x + this.width && mouseY < this.y + this.height;
             int i = this.getHoverState(this.hovered);
