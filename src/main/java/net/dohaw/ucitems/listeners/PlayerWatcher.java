@@ -49,7 +49,6 @@ public class PlayerWatcher {
         }
     }
 
-
 //    @SubscribeEvent (priority = EventPriority.LOWEST)
 //    public void onClientTick(InputEvent.KeyInputEvent e) {
 //        if(Keyboard.isKeyDown(Keyboard.KEY_E)){
