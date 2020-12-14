@@ -50,21 +50,9 @@ public class RequestSkillCategoryOpenPacket implements IMessage {
          */
         @Override
         public IMessage onMessage(RequestSkillCategoryOpenPacket message, MessageContext ctx) {
-            if(ctx.side == Side.SERVER){
-                final EntityPlayerMP player = ctx.getServerHandler().player;
-                player.getServer().addScheduledTask(new Runnable() {
-                    @Override
-                    public void run() {
-                        handle(message, ctx);
-                    }
-                });
-            }
-            return null;
-        }
-
-        private void handle(RequestSkillCategoryOpenPacket message, MessageContext ctx) {
+            final EntityPlayerMP player = ctx.getServerHandler().player;
             Side side = ctx.side;
-            if(side == Side.SERVER){
+            if (side == Side.SERVER) {
                 EntityPlayerMP pmp = ctx.getServerHandler().player;
                 UUID uuid = pmp.getUniqueID();
                 PlayerData pd = SkillsAPI.getPlayerData(uuid);
@@ -74,7 +62,7 @@ public class RequestSkillCategoryOpenPacket implements IMessage {
                 //NBTTagCompound attributeData = new NBTTagCompound();
 
                 EnumMap<SkillType, SkillData> skills = pd.getSkills();
-                for(Map.Entry<SkillType, SkillData> entry : skills.entrySet()){
+                for (Map.Entry<SkillType, SkillData> entry : skills.entrySet()) {
 
                     SkillType type = entry.getKey();
                     SkillData sd = entry.getValue();
@@ -88,11 +76,41 @@ public class RequestSkillCategoryOpenPacket implements IMessage {
 
                 }
                 wrapper.setTag("Skills", skillsData);
-                PacketHandler.INSTANCE.sendTo(new SendPlayerDataToClientPacket(wrapper), pmp);
+                System.out.println("WRAPPER: " + wrapper.toString());
+                return new SendPlayerDataToClientPacket(wrapper);
             }
+            return null;
         }
 
-    }
-
+//        private void handle(RequestSkillCategoryOpenPacket message, MessageContext ctx) {
+//            Side side = ctx.side;
+//            if(side == Side.SERVER){
+//                EntityPlayerMP pmp = ctx.getServerHandler().player;
+//                UUID uuid = pmp.getUniqueID();
+//                PlayerData pd = SkillsAPI.getPlayerData(uuid);
+//
+//                NBTTagCompound wrapper = new NBTTagCompound();
+//                NBTTagCompound skillsData = new NBTTagCompound();
+//                //NBTTagCompound attributeData = new NBTTagCompound();
+//
+//                EnumMap<SkillType, SkillData> skills = pd.getSkills();
+//                for(Map.Entry<SkillType, SkillData> entry : skills.entrySet()){
+//
+//                    SkillType type = entry.getKey();
+//                    SkillData sd = entry.getValue();
+//                    double level = sd.getLevel();
+//                    double timeSpent = sd.getTimeSpent();
+//
+//                    NBTTagCompound skill = new NBTTagCompound();
+//                    skill.setDouble("Time Spent", timeSpent);
+//                    skill.setDouble("Level", level);
+//                    skillsData.setTag(type.toString(), skill);
+//
+//                }
+//                wrapper.setTag("Skills", skillsData);
+//                PacketHandler.INSTANCE.sendTo(new SendPlayerDataToClientPacket(wrapper), pmp);
+//            }
+//        }
+        }
 }
 

@@ -19,10 +19,10 @@ public class PacketHandler {
 //    }
 
     public static void registerMessages(){
-        INSTANCE.registerMessage(SendPlayerDataToClientPacket.Handler.class, SendPlayerDataToClientPacket.class, nextID(), Side.CLIENT);
         INSTANCE.registerMessage(RequestSkillCategoryOpenPacket.Handler.class, RequestSkillCategoryOpenPacket.class, nextID(), Side.CLIENT);
         INSTANCE.registerMessage(RequestSkillCategoryOpenPacket.Handler.class, RequestSkillCategoryOpenPacket.class, nextID(), Side.SERVER);
-
+        INSTANCE.registerMessage(SendPlayerDataToClientPacket.Handler.class, SendPlayerDataToClientPacket.class, nextID(), Side.CLIENT);
+        INSTANCE.registerMessage(SendPlayerDataToClientPacket.Handler.class, SendPlayerDataToClientPacket.class, nextID(), Side.SERVER);
     }
 
 }

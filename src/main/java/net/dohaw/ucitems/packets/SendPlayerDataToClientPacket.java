@@ -11,6 +11,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class SendPlayerDataToClientPacket implements IMessage {
 
@@ -57,11 +58,15 @@ public class SendPlayerDataToClientPacket implements IMessage {
         @Override
         public IMessage onMessage(SendPlayerDataToClientPacket message, MessageContext ctx) {
             if(ctx.side == Side.CLIENT){
-                System.out.println("DATA: " + message.data.toString());
-            }else{
-                System.out.println("WE ON OTHER SIDE");
+                NBTTagCompound data = message.data;
+                openGui(data);
             }
             return null;
+        }
+
+        @SideOnly(value = Side.CLIENT)
+        private void openGui(NBTTagCompound data){
+            Minecraft.getMinecraft().displayGuiScreen(new SkillsMenu(data));
         }
 
     }
