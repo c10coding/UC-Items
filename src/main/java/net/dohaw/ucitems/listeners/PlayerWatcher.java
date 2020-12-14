@@ -39,12 +39,13 @@ public class PlayerWatcher {
     }
 
     @SubscribeEvent
-    public static void onPressGUIButton(GuiScreenEvent.ActionPerformedEvent e){
+    public static void onPressGUIButton(GuiScreenEvent.ActionPerformedEvent.Pre e){
         GuiButton button = e.getButton();
         GuiScreen screen = e.getGui();
         if(screen instanceof GuiInventory){
             if(button.id == SKILLS_BUTTON_ID){
                 PacketHandler.INSTANCE.sendToServer(new RequestSkillCategoryOpenPacket());
+                System.out.println("HERE");
             }
         }
     }

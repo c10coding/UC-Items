@@ -76,7 +76,6 @@ public class RequestSkillCategoryOpenPacket implements IMessage {
 
                 }
                 wrapper.setTag("Skills", skillsData);
-                System.out.println("WRAPPER: " + wrapper.toString());
                 return new SendPlayerDataToClientPacket(wrapper);
             }
             return null;
