@@ -54,8 +54,8 @@ public class SkillsMenu extends GuiScreen {
         final int NUM_CATEGORIES = SkillCategory.values().length;
         final int BUTTON_SPACE = guiWidth - (WIDTH_BETWEEN_CATEGORIES * (NUM_CATEGORIES + 1));
         final int BUTTON_WIDTH = BUTTON_SPACE / NUM_CATEGORIES;
-        final int BUTTON_Y = guiY - 100;
-        final int BUTTON_HEIGHT = 50;
+        final int BUTTON_Y = guiY - 200;
+        final int BUTTON_HEIGHT = 300;
 
         System.out.println("SPACE: " + BUTTON_SPACE);
         System.out.println("GUI X: " + guiX);

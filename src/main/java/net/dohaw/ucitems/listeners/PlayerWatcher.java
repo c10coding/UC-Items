@@ -45,7 +45,6 @@ public class PlayerWatcher {
         if(screen instanceof GuiInventory){
             if(button.id == SKILLS_BUTTON_ID){
                 PacketHandler.INSTANCE.sendToServer(new RequestSkillCategoryOpenPacket());
-                System.out.println("HERE");
             }
         }
     }
