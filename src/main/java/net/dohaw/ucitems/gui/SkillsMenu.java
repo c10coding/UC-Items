@@ -1,18 +1,11 @@
 package net.dohaw.ucitems.gui;
 
-import net.dohaw.play.skills.PlayerData;
 import net.dohaw.ucitems.UCItems;
+import net.dohaw.ucitems.gui.buttons.CustomGuiButton;
 import net.dohaw.ucitems.skills.SkillCategory;
-import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiLabel;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
-
-import java.util.ArrayList;
-import java.util.EnumMap;
-import java.util.List;
-import java.util.Map;
 
 public class SkillsMenu extends GuiScreen {
 
@@ -40,9 +33,9 @@ public class SkillsMenu extends GuiScreen {
 
         updateGuiInfo();
 
-        this.drawDefaultBackground();
+        //this.drawDefaultBackground();
 
-        mc.getTextureManager().bindTexture(new ResourceLocation(UCItems.MODID, "textures/gui/testing.png"));
+        mc.getTextureManager().bindTexture(new ResourceLocation(UCItems.MODID, "textures/gui/skill_menu_background.png"));
         drawTexturedModalRect(guiX, guiY,0, 0, guiWidth, guiHeight);
 
         super.drawScreen(mouseX, mouseY, partialTicks);
@@ -51,28 +44,25 @@ public class SkillsMenu extends GuiScreen {
     private void initCategoryButtons(){
 
         final int WIDTH_BETWEEN_CATEGORIES = 10;
+        final int BUTTON_HEIGHT = 20;
         final int NUM_CATEGORIES = SkillCategory.values().length;
-        final int BUTTON_SPACE = guiWidth - (WIDTH_BETWEEN_CATEGORIES * (NUM_CATEGORIES + 1));
-        final int BUTTON_WIDTH = BUTTON_SPACE / NUM_CATEGORIES;
-        final int BUTTON_Y = guiY - 200;
-        final int BUTTON_HEIGHT = 300;
 
-        System.out.println("SPACE: " + BUTTON_SPACE);
-        System.out.println("GUI X: " + guiX);
-        System.out.println("GUI Y: " + guiY);
+        int buttonSpace = guiWidth - (WIDTH_BETWEEN_CATEGORIES * (NUM_CATEGORIES + 1));
+        int buttonWidth = buttonSpace / NUM_CATEGORIES;
+        int buttonY = guiY + 5;
+        int buttonX = guiX + WIDTH_BETWEEN_CATEGORIES;
 
-        int currentX = guiX + WIDTH_BETWEEN_CATEGORIES;
         for(SkillCategory category : SkillCategory.values()){
             int id = buttonId++;
-            this.buttonList.add(new GuiButton(id, currentX, BUTTON_Y, BUTTON_WIDTH, BUTTON_HEIGHT, category.name()));
-            currentX += (WIDTH_BETWEEN_CATEGORIES + BUTTON_WIDTH);
+            this.buttonList.add(new CustomGuiButton(id, buttonX, buttonY, buttonWidth, BUTTON_HEIGHT, category.name(), "button_texture"));
+            buttonX += (WIDTH_BETWEEN_CATEGORIES + buttonWidth);
         }
 
     }
 
     private void updateGuiInfo(){
         guiWidth = (int) (width * GUI_PERCENTAGE_WIDTH);
-        guiHeight = (int) (width * GUI_PERCENTAGE_HEIGHT);
+        guiHeight = (int) (height * GUI_PERCENTAGE_HEIGHT);
         guiX = (width / 2) - (guiWidth / 2);
         guiY = (height / 2) - (guiHeight / 2);
     }
