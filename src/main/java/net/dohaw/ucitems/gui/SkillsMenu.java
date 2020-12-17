@@ -17,10 +17,11 @@ public class SkillsMenu extends GuiScreen {
     private SkillCategory currentCategory;
     private EnumMap<SkillCategory, EnumMap<SkillType, NBTTagCompound>> skillsPerCategory = new EnumMap<>(SkillCategory.class);
 
-    final int MAX_SKILLS_PER_COLUMN = 4;
-    final double GUI_PERCENTAGE_WIDTH = 0.7;
-    final double GUI_PERCENTAGE_HEIGHT = .50;
+    private final int MAX_SKILLS_PER_COLUMN = 4;
+    private final double GUI_PERCENTAGE_WIDTH = 0.7;
+    private final double GUI_PERCENTAGE_HEIGHT = .50;
 
+    private int guiCategoryMaxY;
     private int guiWidth, guiHeight;
     private int guiX, guiY;
 
@@ -66,18 +67,19 @@ public class SkillsMenu extends GuiScreen {
 
     private void initCategoryButtons(){
 
+        buttonList.clear();
         final int WIDTH_BETWEEN_CATEGORIES = 10;
         final int BUTTON_HEIGHT = 20;
         final int NUM_CATEGORIES = SkillCategory.values().length;
 
         int buttonSpace = guiWidth - (WIDTH_BETWEEN_CATEGORIES * (NUM_CATEGORIES + 1));
         int buttonWidth = buttonSpace / NUM_CATEGORIES;
-        int buttonY = guiY + 5;
+        this.guiCategoryMaxY = guiY + 5;
         int buttonX = guiX + WIDTH_BETWEEN_CATEGORIES;
 
         for(SkillCategory category : SkillCategory.values()){
             int id = buttonId++;
-            this.buttonList.add(new CustomGuiButton(id, buttonX, buttonY, buttonWidth, BUTTON_HEIGHT, category.name(), "button_texture"));
+            this.buttonList.add(new CustomGuiButton(id, buttonX, guiCategoryMaxY, buttonWidth, BUTTON_HEIGHT, category.name(), "button_texture"));
             buttonX += (WIDTH_BETWEEN_CATEGORIES + buttonWidth);
         }
 
@@ -85,6 +87,7 @@ public class SkillsMenu extends GuiScreen {
 
     private void initCategoryLabels(){
 
+        labelList.clear();
         final int LABEL_WIDTH = 100;
         final int LABEL_HEIGHT = 20;
         final int COLUMN_VERTICAL_PADDING = 20;
@@ -92,7 +95,7 @@ public class SkillsMenu extends GuiScreen {
         final int LABEL_VERTICAL_SPACE = (guiHeight - (COLUMN_VERTICAL_PADDING * 2)) - (MAX_SKILLS_PER_COLUMN * LABEL_HEIGHT);
 
         Map<SkillType, NBTTagCompound> currentCategoryData = skillsPerCategory.get(currentCategory);
-        int labelY = guiY + COLUMN_VERTICAL_PADDING;
+        int labelY = guiCategoryMaxY + COLUMN_VERTICAL_PADDING;
         int columnX;
 
         if(currentCategoryData.size() <= MAX_SKILLS_PER_COLUMN){
