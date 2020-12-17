@@ -1,5 +1,6 @@
 package net.dohaw.ucitems.skills;
 
+import lombok.Getter;
 import net.dohaw.play.skills.skills.Skill;
 
 public enum SkillType {
@@ -8,7 +9,7 @@ public enum SkillType {
     MINING(SkillCategory.TRADE),
     LUMBERJACKING(SkillCategory.TRADE);
 
-    private SkillCategory category;
+    @Getter private SkillCategory category;
     SkillType(SkillCategory category){
         this.category = category;
     }

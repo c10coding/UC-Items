@@ -2,6 +2,7 @@ package net.dohaw.ucitems.packets;
 
 import io.netty.buffer.ByteBuf;
 import net.dohaw.ucitems.gui.SkillsMenu;
+import net.dohaw.ucitems.skills.SkillCategory;
 import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
@@ -64,7 +65,7 @@ public class SendPlayerDataToClientPacket implements IMessage {
 
         @SideOnly(value = Side.CLIENT)
         private void openGui(NBTTagCompound data){
-            Minecraft.getMinecraft().displayGuiScreen(new SkillsMenu(data));
+            Minecraft.getMinecraft().displayGuiScreen(new SkillsMenu(SkillCategory.TRADE, data));
         }
 
     }
