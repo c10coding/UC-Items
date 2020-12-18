@@ -16,7 +16,7 @@ import java.util.*;
 
 public class SkillsMenu extends GuiScreen {
 
-    private SkillCategory currentCategory;
+    private final SkillCategory currentCategory;
     private EnumMap<SkillCategory, EnumMap<SkillType, NBTTagCompound>> skillsPerCategory = new EnumMap<>(SkillCategory.class);
 
     private final int MAX_SKILLS_PER_COLUMN = 4;
@@ -59,11 +59,11 @@ public class SkillsMenu extends GuiScreen {
 
         super.drawScreen(mouseX, mouseY, partialTicks);
 
-        for(GuiButton button: buttonList){
-            if(isHoveringButton(mouseX, mouseY, button)){
-                drawHoveringText("Testing", mouseX, mouseY);
-            }
-        }
+//        for(GuiButton button: buttonList){
+//            if(isHoveringButton(mouseX, mouseY, button)){
+//                drawHoveringText("Testing", mouseX, mouseY);
+//            }
+//        }
 
     }
 
@@ -95,7 +95,7 @@ public class SkillsMenu extends GuiScreen {
         final int LABEL_HEIGHT = 50;
         final int COLUMN_VERTICAL_PADDING = 20;
         final int COLUMN_HORIZONTAL_SPACE = 20;
-        final int LABEL_VERTICAL_SPACE = (guiHeight - ( (guiCategoryMaxY - guiY) + (COLUMN_VERTICAL_PADDING * 2))) / 3;
+        final int LABEL_VERTICAL_SPACE = (guiHeight - (guiCategoryMaxY - guiY)) / 5/*+ (COLUMN_VERTICAL_PADDING * 2)*/ ;
 
         System.out.println("BRUH2 : " + guiHeight);
         System.out.println("LABEL VERT: " + LABEL_VERTICAL_SPACE);
@@ -118,11 +118,30 @@ public class SkillsMenu extends GuiScreen {
 
                 //GUI LABEL ARGUMENTS: ID, X, Y, WIDTH, HEIGHT, COLOR
                 int id = labelID++;
-                GuiLabel label = new GuiLabel(fontRenderer, id, columnX, labelY, LABEL_WIDTH, LABEL_HEIGHT, 0xFFFFFF);
-                NBTTagCompound tag = entry.getValue();
+                GuiLabel skillNameLabel = new GuiLabel(fontRenderer, id, columnX, labelY, LABEL_WIDTH, LABEL_HEIGHT, 0xFFFFFF);
                 String labelText = entry.getKey().toString();
-                label.addLine(labelText);
-                this.labelList.add(label);
+                int skillLevelNameWidth = fontRenderer.getStringWidth(labelText);
+
+                skillNameLabel.addLine(labelText);
+
+                NBTTagCompound tag = entry.getValue();
+
+                int levelLabelX = skillNameLabel.x + skillLevelNameWidth + 10;
+                GuiLabel levelLabel = new GuiLabel(fontRenderer, id, levelLabelX, labelY, LABEL_WIDTH, LABEL_HEIGHT, 0xFFFFFF);
+                double level = tag.getDouble("Level");
+                String levelLine = "Level: " + level;
+                levelLabel.addLine(levelLine);
+
+                int levelLineWidth = fontRenderer.getStringWidth(levelLine);
+                int timeSpentLabelX = levelLabel.x + levelLineWidth + 10;
+                GuiLabel timeSpentLabel = new GuiLabel(fontRenderer, id, timeSpentLabelX, labelY, LABEL_WIDTH, LABEL_HEIGHT, 0xFFFFFF);
+
+                double timeSpent = tag.getDouble("Time Spent");
+                timeSpentLabel.addLine("Time Spent: " + timeSpent);
+
+                this.labelList.add(skillNameLabel);
+                this.labelList.add(levelLabel);
+                this.labelList.add(timeSpentLabel);
 
                 labelY += LABEL_VERTICAL_SPACE;
                 labelPageCount++;
@@ -143,14 +162,16 @@ public class SkillsMenu extends GuiScreen {
             while(itr.hasNext()){
                 SkillType skillType = itr.next();
                 if(skillType.getCategory() == category){
+                    categorySkills.put(skillType, skillsCompound.getCompoundTag(skillType.toString()));
                     // Removes it so that it doesn't have to keep looping through skill types that are already used. // more efficient.
-                    itr.remove();
                     skillsCompound.removeTag(skillType.toString());
-                    categorySkills.put(skillType, skillsData.getCompoundTag("Skills").getCompoundTag(skillType.toString()));
+                    itr.remove();
                 }
             }
             this.skillsPerCategory.put(category, categorySkills);
         }
+
+        System.out.println("SKILLS CATEGORY: " + skillsPerCategory.toString());
 
     }
 
@@ -161,10 +182,16 @@ public class SkillsMenu extends GuiScreen {
         guiY = (height / 2) - (guiHeight / 2);
     }
 
-    private boolean isHoveringButton(int mouseX, int mouseY, GuiButton button){
-        int buttonMaxX = button.x + button.width;
-        int buttonMaxY = button.y + button.height;
-        return mouseX >= button.x && mouseX <= buttonMaxX && mouseY >= button.y && mouseY <= buttonMaxY;
-    }
+//    private boolean isHoveringButton(int mouseX, int mouseY, GuiButton button){
+//        int buttonMaxX = button.x + button.width;
+//        int buttonMaxY = button.y + button.height;
+//        return mouseX >= button.x && mouseX <= buttonMaxX && mouseY >= button.y && mouseY <= buttonMaxY;
+//    }
+
+//    private boolean isHoveringLabel(int mouseX, int mouseY, GuiLabel label){
+//        int labelMaxX = label.x + fontRenderer.getStringWidth(label.);
+//        int buttonMaxY = button.y + button.height;
+//        return mouseX >= button.x && mouseX <= buttonMaxX && mouseY >= button.y && mouseY <= buttonMaxY;
+//    }
 
 }
