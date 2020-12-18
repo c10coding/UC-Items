@@ -7,6 +7,8 @@ import net.dohaw.ucitems.skills.SkillType;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiLabel;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.gui.ScaledResolution;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 
@@ -74,12 +76,13 @@ public class SkillsMenu extends GuiScreen {
 
         int buttonSpace = guiWidth - (WIDTH_BETWEEN_CATEGORIES * (NUM_CATEGORIES + 1));
         int buttonWidth = buttonSpace / NUM_CATEGORIES;
-        this.guiCategoryMaxY = guiY + 5;
+        int buttonY = guiY + 5;
+        this.guiCategoryMaxY = guiY + BUTTON_HEIGHT;
         int buttonX = guiX + WIDTH_BETWEEN_CATEGORIES;
 
         for(SkillCategory category : SkillCategory.values()){
             int id = buttonId++;
-            this.buttonList.add(new CustomGuiButton(id, buttonX, guiCategoryMaxY, buttonWidth, BUTTON_HEIGHT, category.name(), "button_texture"));
+            this.buttonList.add(new CustomGuiButton(id, buttonX, buttonY, buttonWidth, BUTTON_HEIGHT, category.name(), "button_texture"));
             buttonX += (WIDTH_BETWEEN_CATEGORIES + buttonWidth);
         }
 
@@ -89,20 +92,17 @@ public class SkillsMenu extends GuiScreen {
 
         labelList.clear();
         final int LABEL_WIDTH = 100;
-        final int LABEL_HEIGHT = 20;
+        final int LABEL_HEIGHT = 50;
         final int COLUMN_VERTICAL_PADDING = 20;
-        final int COLUMN_HORIZATONAL_SPACE = 20;
-        final int LABEL_VERTICAL_SPACE = (guiHeight - (COLUMN_VERTICAL_PADDING * 2)) - (MAX_SKILLS_PER_COLUMN * LABEL_HEIGHT);
+        final int COLUMN_HORIZONTAL_SPACE = 20;
+        final int LABEL_VERTICAL_SPACE = (guiHeight - ( (guiCategoryMaxY - guiY) + (COLUMN_VERTICAL_PADDING * 2))) / 3;
+
+        System.out.println("BRUH2 : " + guiHeight);
+        System.out.println("LABEL VERT: " + LABEL_VERTICAL_SPACE);
 
         Map<SkillType, NBTTagCompound> currentCategoryData = skillsPerCategory.get(currentCategory);
-        int labelY = guiCategoryMaxY + COLUMN_VERTICAL_PADDING;
-        int columnX;
-
-        if(currentCategoryData.size() <= MAX_SKILLS_PER_COLUMN){
-            columnX = ((guiX + guiWidth) / 2) - (LABEL_WIDTH / 2);
-        }else{
-            columnX = guiX + COLUMN_HORIZATONAL_SPACE;
-        }
+        int labelY = guiCategoryMaxY + LABEL_VERTICAL_SPACE;
+        int columnX = guiX + COLUMN_HORIZONTAL_SPACE;
 
         int labelPageCount = 1;
         int labelID = 0;
@@ -113,7 +113,7 @@ public class SkillsMenu extends GuiScreen {
             }else{
 
                 if(labelPageCount == MAX_SKILLS_PER_COLUMN){
-                    columnX = (guiX + guiWidth) - (COLUMN_HORIZATONAL_SPACE + LABEL_WIDTH);
+                    columnX = (guiX + guiWidth) - (COLUMN_HORIZONTAL_SPACE + LABEL_WIDTH);
                 }
 
                 //GUI LABEL ARGUMENTS: ID, X, Y, WIDTH, HEIGHT, COLOR
