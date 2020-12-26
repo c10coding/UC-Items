@@ -2,6 +2,7 @@ package net.dohaw.ucitems.utils.handlers;
 
 import net.dohaw.ucitems.init.ModBlocks;
 import net.dohaw.ucitems.init.ModItems;
+import net.dohaw.ucitems.init.ModPotions;
 import net.dohaw.ucitems.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -9,6 +10,7 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.FMLNetworkEvent;
 
@@ -41,6 +43,5 @@ public class RegistryHandler {
         }
 
     }
-
 
 }

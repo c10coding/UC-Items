@@ -21,3 +21,10 @@ tile.ash_wood.name=Ash Wood
 tile.frost_wood.name=Frost Wood
 tile.yew_wood.name=Yew Wood
 tile.heart_wood.name=Heart Wood
+
+#Potions
+effect.my_potion=My Potion
+potion.effect.my_potion=Potion of My Potion
+splash_potion.effect.my_potion=Splash potion of My Potion
+lingering_potion.effect.my_potion=Lingering Potion of My Potion
+tipped_arrow.effect.my_potion=Arrow of My Potion

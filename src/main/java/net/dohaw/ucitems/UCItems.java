@@ -1,5 +1,6 @@
 package net.dohaw.ucitems;
 
+import net.dohaw.ucitems.init.ModPotions;
 import net.dohaw.ucitems.init.ModRecipes;
 import net.dohaw.ucitems.packets.PacketHandler;
 import net.dohaw.ucitems.proxy.CommonProxy;
@@ -39,6 +40,7 @@ public class UCItems
     {
         logger = event.getModLog();
         PacketHandler.registerMessages();
+        ModPotions.registerPotions();
     }
 
     @EventHandler
