@@ -32,7 +32,7 @@ public class PlayerWatcher {
         GuiScreen screen = event.getGui();
         if(screen instanceof GuiInventory){
             List<GuiButton> buttons = event.getButtonList();
-            CustomGuiButton button = new CustomGuiButton(SKILLS_BUTTON_ID, 10, screen.height - 30, 40, 20, "Skills", "testing");
+            CustomGuiButton button = new CustomGuiButton(SKILLS_BUTTON_ID, 10, screen.height - 30, 40, 20, "Skills", "button_texture");
             buttons.add(button);
             event.setButtonList(buttons);
         }

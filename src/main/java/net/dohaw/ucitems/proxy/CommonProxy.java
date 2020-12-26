@@ -1,7 +1,5 @@
 package net.dohaw.ucitems.proxy;
 
-import net.dohaw.ucitems.packets.PacketHandler;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;

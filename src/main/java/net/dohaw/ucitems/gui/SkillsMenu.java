@@ -7,11 +7,10 @@ import net.dohaw.ucitems.skills.SkillType;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiLabel;
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.gui.ScaledResolution;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 
+import java.io.IOException;
 import java.util.*;
 
 public class SkillsMenu extends GuiScreen {
@@ -29,6 +28,7 @@ public class SkillsMenu extends GuiScreen {
 
     private int buttonId = 0;
 
+    private Map<Integer, SkillCategory> categoryButtons = new HashMap<>();
     /*
         Only use this when first opening the menu
      */
@@ -81,8 +81,10 @@ public class SkillsMenu extends GuiScreen {
         int buttonX = guiX + WIDTH_BETWEEN_CATEGORIES;
 
         for(SkillCategory category : SkillCategory.values()){
-            int id = buttonId++;
-            this.buttonList.add(new CustomGuiButton(id, buttonX, buttonY, buttonWidth, BUTTON_HEIGHT, category.name(), "button_texture"));
+            buttonId++;
+            CustomGuiButton categoryButton = new CustomGuiButton(buttonId, buttonX, buttonY, buttonWidth, BUTTON_HEIGHT, category.name(), "button_texture");
+            this.categoryButtons.put(buttonId, category);
+            this.buttonList.add(categoryButton);
             buttonX += (WIDTH_BETWEEN_CATEGORIES + buttonWidth);
         }
 
@@ -93,9 +95,9 @@ public class SkillsMenu extends GuiScreen {
         labelList.clear();
         final int LABEL_WIDTH = 100;
         final int LABEL_HEIGHT = 50;
-        final int COLUMN_VERTICAL_PADDING = 20;
+        //final int COLUMN_VERTICAL_PADDING = 20;
         final int COLUMN_HORIZONTAL_SPACE = 20;
-        final int LABEL_VERTICAL_SPACE = (guiHeight - (guiCategoryMaxY - guiY)) / 5/*+ (COLUMN_VERTICAL_PADDING * 2)*/ ;
+        final int LABEL_VERTICAL_SPACE = (guiHeight - (guiCategoryMaxY - guiY)) / 5;/*+ (COLUMN_VERTICAL_PADDING * 2)*/
 
         System.out.println("BRUH2 : " + guiHeight);
         System.out.println("LABEL VERT: " + LABEL_VERTICAL_SPACE);
@@ -180,6 +182,19 @@ public class SkillsMenu extends GuiScreen {
         guiHeight = (int) (height * GUI_PERCENTAGE_HEIGHT);
         guiX = (width / 2) - (guiWidth / 2);
         guiY = (height / 2) - (guiHeight / 2);
+    }
+
+    @Override
+    public void actionPerformed(GuiButton button){
+
+        if(button instanceof CustomGuiButton){
+            CustomGuiButton customGuiButton = (CustomGuiButton) button;
+            if(categoryButtons.containsKey(customGuiButton.id)){
+                SkillCategory categoryClicked = categoryButtons.get(customGuiButton.id);
+                mc.displayGuiScreen(new SkillsMenu(categoryClicked, skillsPerCategory));
+            }
+        }
+
     }
 
 //    private boolean isHoveringButton(int mouseX, int mouseY, GuiButton button){
