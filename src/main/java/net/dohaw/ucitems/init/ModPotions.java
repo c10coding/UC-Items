@@ -30,6 +30,8 @@ public class ModPotions {
     public static final Potion LESSER_CURES_EFFECT = new PotionBase("lesser_cures_potion", false, 10595327, 0, 0);
     public static final PotionType DEFAULT_LESSER_CURES_TYPE = new PotionType("lesser_cures_potion", new PotionEffect[] {new PotionEffect(LESSER_CURES_EFFECT, 2400)}).setRegistryName("lesser_cures_potion");
 
+    public static final Potion CURES_EFFECT = new PotionBase("cures_potion", false, 7449599, 0, 0);
+    public static final PotionType DEFAULT_CURES_TYPE = new PotionType("cures_potion", new PotionEffect[] {new PotionEffect(CURES_EFFECT, 2400)}).setRegistryName("cures_potion");
 
     public static void registerPotions(){
         registerPotion(AGILITY_EFFECT, DEFAULT_AGILITY_TYPE, null);
@@ -37,6 +39,7 @@ public class ModPotions {
         registerPotion(CONFLAGRATION_EFFECT, DEFAULT_CONFLAGRATION_TYPE, null);
         registerPotion(GREATER_CONFLAGRATION_EFFECT, DEFAULT_GREATER_CONFLGRATION_TYPE, null);
         registerPotion(LESSER_CURES_EFFECT, DEFAULT_LESSER_CURES_TYPE, null);
+        registerPotion(CURES_EFFECT, DEFAULT_CURES_TYPE, null);
     }
 
     private static void registerPotion(Potion effect, PotionType ...types){

@@ -46,3 +46,15 @@ potion.effect.greater_conflagration_potion=Potion of Greater Conflagration
 splash_potion.effect.greater_conflagration_potion=Splash potion of Greater Conflagration
 lingering_potion.effect.greater_conflagration_potion=Lingering Potion of Greater Conflagration
 tipped_arrow.effect.greater_conflagration_potion=Arrow of Greater Conflagration
+
+effect.lesser_cures_potion=Lesser Cures Potion
+potion.effect.lesser_cures_potion=Potion of Lesser Cures
+splash_potion.effect.lesser_cures_potion=Splash potion of Lesser Cures
+lingering_potion.effect.lesser_cures_potion=Lingering Potion of Lesser Cures
+tipped_arrow.effect.lesser_cures_potion=Arrow of Lesser Cures
+
+effect.cures_potion=Cures Potion
+potion.effect.cures_potion=Potion of Cures
+splash_potion.effect.cures_potion=Splash potion of Cures
+lingering_potion.effect.cures_potion=Lingering Potion of Cures
+tipped_arrow.effect.cures_potion=Arrow of Cures
