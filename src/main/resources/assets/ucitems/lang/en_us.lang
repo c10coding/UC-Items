@@ -23,8 +23,14 @@ tile.yew_wood.name=Yew Wood
 tile.heart_wood.name=Heart Wood
 
 #Potions
-effect.my_potion=My Potion
-potion.effect.my_potion=Potion of My Potion
-splash_potion.effect.my_potion=Splash potion of My Potion
-lingering_potion.effect.my_potion=Lingering Potion of My Potion
-tipped_arrow.effect.my_potion=Arrow of My Potion
+effect.agility_potion=Agility Potion
+potion.effect.agility_potion=Potion of Agility
+splash_potion.effect.agility_potion=Splash potion of Agility
+lingering_potion.effect.agility_potion=Lingering Potion of Agility
+tipped_arrow.effect.agility_potion=Arrow of Agility
+
+effect.greater_agility_potion=Greater Agility Potion
+potion.effect.greater_agility_potion=Potion of Greater Agility
+splash_potion.effect.greater_agility_potion=Splash potion of Greater Agility
+lingering_potion.effect.greater_agility_potion=Lingering Potion of Greater Agility
+tipped_arrow.effect.greater_agility_potion=Arrow of Greater Agility
