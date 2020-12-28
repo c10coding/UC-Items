@@ -29,29 +29,11 @@ splash_potion.effect.agility_potion=Splash potion of Agility
 lingering_potion.effect.agility_potion=Lingering Potion of Agility
 tipped_arrow.effect.agility_potion=Arrow of Agility
 
-effect.greater_agility_potion=Greater Agility Potion
-potion.effect.greater_agility_potion=Potion of Greater Agility
-splash_potion.effect.greater_agility_potion=Splash potion of Greater Agility
-lingering_potion.effect.greater_agility_potion=Lingering Potion of Greater Agility
-tipped_arrow.effect.greater_agility_potion=Arrow of Greater Agility
-
 effect.conflagration_potion=Conflagration Potion
 potion.effect.conflagration_potion=Potion of Conflagration
 splash_potion.effect.conflagration_potion=Splash potion of Conflagration
 lingering_potion.effect.conflagration_potion=Lingering Potion of Conflagration
 tipped_arrow.effect.conflagration_potion=Arrow of Conflagration
-
-effect.greater_conflagration_potion=Greater Conflagration Potion
-potion.effect.greater_conflagration_potion=Potion of Greater Conflagration
-splash_potion.effect.greater_conflagration_potion=Splash potion of Greater Conflagration
-lingering_potion.effect.greater_conflagration_potion=Lingering Potion of Greater Conflagration
-tipped_arrow.effect.greater_conflagration_potion=Arrow of Greater Conflagration
-
-effect.lesser_cure_potion=Lesser Cure Potion
-potion.effect.lesser_cure_potion=Potion of Lesser Cure
-splash_potion.effect.lesser_cure_potion=Splash potion of Lesser Cure
-lingering_potion.effect.lesser_cure_potion=Lingering Potion of Lesser Cure
-tipped_arrow.effect.lesser_cure_potion=Arrow of Lesser Cure
 
 effect.cure_potion=Cure Potion
 potion.effect.cure_potion=Potion of Cure
@@ -59,27 +41,9 @@ splash_potion.effect.cure_potion=Splash potion of Cure
 lingering_potion.effect.cure_potion=Lingering Potion of Cure
 tipped_arrow.effect.cure_potion=Arrow of Cure
 
-effect.greater_cure_potion=Cure Potion
-potion.effect.greater_cure_potion=Potion of Cure
-splash_potion.effect.greater_cure_potion=Splash potion of Cure
-lingering_potion.effect.greater_cure_potion=Lingering Potion of Cure
-tipped_arrow.effect.greater_cure_potion=Arrow of Cure
-
-effect.lesser_explosion_potion=Lesser Explosion Potion
-potion.effect.lesser_explosion_potion=Potion of Lesser Explosion
-splash_potion.effect.lesser_explosion_potion=Splash potion of Lesser Explosion
-lingering_potion.effect.lesser_explosion_potion=Lingering Potion of Lesser Explosion
-tipped_arrow.effect.lesser_explosion_potion=Arrow of Lesser Explosion
-
 effect.explosion_potion=Explosion Potion
 potion.effect.explosion_potion=Potion of Explosion
 splash_potion.effect.explosion_potion=Splash potion of Explosion
 lingering_potion.effect.explosion_potion=Lingering Potion of Explosion
 tipped_arrow.effect.explosion_potion=Arrow of Explosion
-
-effect.greater_explosion_potion=Greater Explosion Potion
-potion.effect.greater_explosion_potion=Potion of Greater Explosion
-splash_potion.effect.greater_explosion_potion=Splash potion of Greater Explosion
-lingering_potion.effect.greater_explosion_potion=Lingering Potion of Greater Explosion
-tipped_arrow.effect.greater_explosion_potion=Arrow of Greater Explosion
 
