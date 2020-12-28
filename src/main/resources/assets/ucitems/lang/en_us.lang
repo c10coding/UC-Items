@@ -40,3 +40,9 @@ potion.effect.conflagration_potion=Potion of Conflagration
 splash_potion.effect.conflagration_potion=Splash potion of Conflagration
 lingering_potion.effect.conflagration_potion=Lingering Potion of Conflagration
 tipped_arrow.effect.conflagration_potion=Arrow of Conflagration
+
+effect.greater_conflagration_potion=Greater Conflagration Potion
+potion.effect.greater_conflagration_potion=Potion of Greater Conflagration
+splash_potion.effect.greater_conflagration_potion=Splash potion of Greater Conflagration
+lingering_potion.effect.greater_conflagration_potion=Lingering Potion of Greater Conflagration
+tipped_arrow.effect.greater_conflagration_potion=Arrow of Greater Conflagration
