@@ -19,35 +19,27 @@ public class ModPotions {
     public static final PotionType DEFAULT_AGILITY_TYPE = new PotionType("agility_potion", new PotionEffect[] {new PotionEffect(AGILITY_POTION_EFFECT, 2400)}).setRegistryName("agility_potion");
 
     public static final Potion GREATER_AGILITY_POTION_EFFECT = new PotionBase("greater_agility_potion", false, 8236625, 0, 0);
-    public static final PotionType DEFAULT_GREATER_AGILITY_POTION_TYPE = new PotionType("greater_agility_potion", new PotionEffect[]{new PotionEffect(GREATER_AGILITY_POTION_EFFECT, 2400)}).setRegistryName("greater_ability_potion");
+    public static final PotionType DEFAULT_GREATER_AGILITY_POTION_TYPE = new PotionType("greater_agility_potion", new PotionEffect[]{new PotionEffect(GREATER_AGILITY_POTION_EFFECT, 2400)}).setRegistryName("greater_agility_potion");
+
+    public static final Potion CONFLAGRATION_POTION_EFFECT = new PotionBase("conflagration_potion", false, 16728640, 0, 0);
+    public static final PotionType DEFAULT_CONFLAGRATION_TYPE = new PotionType("conflagration_potion", new PotionEffect[] {new PotionEffect(CONFLAGRATION_POTION_EFFECT, 2400)}).setRegistryName("conflagration_potion");
 
     public static void registerPotions(){
-        compilePotions();
         registerPotion(AGILITY_POTION_EFFECT, DEFAULT_AGILITY_TYPE, null);
         registerPotion(GREATER_AGILITY_POTION_EFFECT, DEFAULT_GREATER_AGILITY_POTION_TYPE, null);
+        registerPotion(CONFLAGRATION_POTION_EFFECT, DEFAULT_CONFLAGRATION_TYPE, null);
     }
 
-    private static void registerPotion(Potion effect, PotionType type, PotionType longType){
+    private static void registerPotion(Potion effect, PotionType ...types){
+        List<PotionType> validTypes = new ArrayList<>();
         ForgeRegistries.POTIONS.register(effect);
-        ForgeRegistries.POTION_TYPES.register(type);
-        if(longType != null){
-            ForgeRegistries.POTION_TYPES.register(longType);
+        for(PotionType type : types){
+            if(type != null){
+                validTypes.add(type);
+                ForgeRegistries.POTION_TYPES.register(type);
+            }
         }
-    }
-
-    private static void compilePotions(){
-        potions.put(
-            AGILITY_POTION_EFFECT,
-            new ArrayList<PotionType>(){{
-                add(DEFAULT_AGILITY_TYPE);
-            }}
-        );
-        potions.put(
-            GREATER_AGILITY_POTION_EFFECT,
-            new ArrayList<PotionType>(){{
-                add(DEFAULT_GREATER_AGILITY_POTION_TYPE);
-            }}
-        );
+        potions.put(effect, validTypes);
     }
 
 }
